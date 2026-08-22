@@ -21,4 +21,4 @@ COPY --from=build /app/lib ./lib
 COPY --from=build /app/frontend ./frontend
 
 EXPOSE 8080
-CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-cp", "out:lib/*", "Main"]
+CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-Djdk.tls.client.protocols=TLSv1.2", "-cp", "out:lib/*", "Main"]
