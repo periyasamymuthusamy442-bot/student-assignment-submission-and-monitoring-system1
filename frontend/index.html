@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Assignment Tracking System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+
+</head>
+
+<body>
+
+    <!-- =========================
+         LOGIN PAGE
+    ========================== -->
+
+    <div class="login-page">
+
+        <div class="login-card">
+
+            <!-- =========================
+                 CUSTOM LOGO
+            ========================== -->
+
+            <div class="logo">
+                <img src="/images/logo.png"
+                     alt="Student Assignment Tracking System">
+            </div>
+
+
+            <!-- =========================
+                 TITLE
+            ========================== -->
+
+            <h1>
+                Student Assignment<br>
+                Tracking System
+            </h1>
+
+            <p class="subtitle">
+                Login to continue
+            </p>
+
+
+            <!-- =========================
+                 LOGIN FORM
+            ========================== -->
+
+            <form id="loginForm">
+
+
+                <!-- ROLE SELECT -->
+
+                <div class="role-toggle">
+
+                    <button
+                        type="button"
+                        class="role-option active"
+                        data-role="student">
+
+                        🎓 Student
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="role-option"
+                        data-role="admin">
+
+                        🧑‍🏫 Teacher
+
+                    </button>
+
+                </div>
+
+
+                <!-- USERNAME -->
+
+                <label
+                    for="username"
+                    id="usernameLabel">
+
+                    Registration Number
+
+                </label>
+
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="e.g. S001"
+                    autocomplete="username"
+                    required>
+
+
+                <!-- PASSWORD -->
+
+                <label for="password">
+
+                    Password
+
+                </label>
+
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter password"
+                    autocomplete="current-password"
+                    required>
+
+
+                <!-- ERROR MESSAGE -->
+
+                <div
+                    class="error-msg"
+                    id="errorMsg">
+                </div>
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="login-btn">
+
+                    Login
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>

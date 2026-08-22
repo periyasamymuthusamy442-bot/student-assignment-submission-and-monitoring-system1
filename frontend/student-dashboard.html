@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | Assignment Portal</title>
+
+    <link rel="stylesheet" href="css/student.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+
+            <img src="images/logo.png" alt="College Logo">
+
+            <div class="brand-text">
+                <h2>Student Portal</h2>
+                <span>Assignment Tracking</span>
+            </div>
+
+        </div>
+
+
+        <nav class="nav-menu">
+
+            <p class="nav-title">MAIN MENU</p>
+
+            <a href="#dashboard"
+               class="menu-item active"
+               data-section="dashboard">
+                <span>🏠</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#assignments"
+               class="menu-item"
+               data-section="assignments">
+                <span>📚</span>
+                <span>Assignments</span>
+            </a>
+
+            <a href="#schedule"
+               class="menu-item"
+               data-section="schedule">
+                <span>📅</span>
+                <span>Schedule</span>
+            </a>
+
+            <a href="#notifications"
+               class="menu-item"
+               data-section="notifications">
+                <span>🔔</span>
+                <span>Notifications</span>
+
+                <span class="notification-count"
+                      id="notificationCount">
+                    0
+                </span>
+            </a>
+
+            <a href="#profile"
+               class="menu-item"
+               data-section="profile">
+                <span>👤</span>
+                <span>My Profile</span>
+            </a>
+
+
+            <p class="nav-title account-title">
+                ACCOUNT
+            </p>
+
+            <a href="#settings"
+               class="menu-item"
+               data-section="settings">
+                <span>⚙️</span>
+                <span>Settings</span>
+            </a>
+
+            <button class="menu-item logout-btn"
+                    id="logoutBtn">
+                <span>🚪</span>
+                <span>Logout</span>
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-help">
+
+            <div class="help-icon">💡</div>
+
+            <div>
+                <strong>Need Help?</strong>
+
+                <p>
+                    Contact your administrator
+                    for support.
+                </p>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <button class="mobile-menu-btn"
+                    id="mobileMenuBtn">
+                ☰
+            </button>
+
+
+            <div class="page-heading">
+
+                <h1 id="pageTitle">
+                    Student Dashboard
+                </h1>
+
+                <p id="pageSubtitle">
+                    Track your assignments and academic activities
+                </p>
+
+            </div>
+
+
+            <!-- PROFILE -->
+
+            <div class="profile-wrapper">
+
+                <button class="profile-button"
+                        id="profileButton">
+
+                    <div class="profile-avatar"
+                         id="headerAvatar">
+                        ST
+                    </div>
+
+                    <div class="profile-details">
+
+                        <strong id="headerStudentName">
+                            Student
+                        </strong>
+
+                        <span>
+                            Student •
+                            <span id="headerStudentId">-</span>
+                        </span>
+
+                    </div>
+
+                    <span class="profile-arrow">
+                        ▼
+                    </span>
+
+                </button>
+
+
+                <div class="profile-dropdown"
+                     id="profileDropdown">
+
+                    <div class="profile-dropdown-header">
+
+                        <div class="large-avatar"
+                             id="dropdownAvatar">
+                            ST
+                        </div>
+
+                        <div>
+
+                            <strong id="dropdownStudentName">
+                                Student
+                            </strong>
+
+                            <span>
+                                Student ID:
+                                <span id="dropdownStudentId">
+                                    -
+                                </span>
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="dropdown-divider"></div>
+
+
+                    <button data-section-target="profile">
+                        👤
+                        <span>My Profile</span>
+                    </button>
+
+                    <button data-section-target="assignments">
+                        📚
+                        <span>My Assignments</span>
+                    </button>
+
+                    <button data-section-target="settings">
+                        ⚙️
+                        <span>Settings</span>
+                    </button>
+
+
+                    <div class="dropdown-divider"></div>
+
+
+                    <button class="dropdown-logout"
+                            id="dropdownLogoutBtn">
+                        🚪
+                        <span>Logout</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             PAGE CONTAINER
+        ================================================== -->
+
+        <section class="page-container">
+
+
+            <!-- =================================================
+                 DASHBOARD
+            ================================================== -->
+
+            <section class="page-section active-section"
+                     id="section-dashboard">
+
+
+                <!-- WELCOME -->
+
+                <div class="welcome-card">
+
+                    <div class="welcome-content">
+
+                        <span class="welcome-label">
+                            STUDENT PORTAL
+                        </span>
+
+                        <h2>
+                            Welcome back,
+                            <span id="welcomeStudentName">
+                                Student
+                            </span>
+                            👋
+                        </h2>
+
+                        <p>
+                            Stay organized, complete your
+                            assignments and keep track of
+                            your academic progress.
+                        </p>
+
+                    </div>
+
+                    <div class="welcome-decoration">
+                        🎓
+                    </div>
+
+                </div>
+
+
+                <!-- STATISTICS -->
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon purple">
+                            📚
+                        </div>
+
+                        <div class="stat-content">
+
+                            <span>
+                                Total Assignments
+                            </span>
+
+                            <strong id="totalAssignments">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon green">
+                            ✓
+                        </div>
+
+                        <div class="stat-content">
+
+                            <span>
+                                Submitted
+                            </span>
+
+                            <strong id="submittedAssignments">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon orange">
+                            ⏳
+                        </div>
+
+                        <div class="stat-content">
+
+                            <span>
+                                Pending
+                            </span>
+
+                            <strong id="pendingAssignments">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon blue">
+                            🎯
+                        </div>
+
+                        <div class="stat-content">
+
+                            <span>
+                                Completion
+                            </span>
+
+                            <strong id="completionPercentage">
+                                0%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NOTIFICATION -->
+
+                <div class="notification-card">
+
+                    <div class="notification-icon">
+                        🔔
+                    </div>
+
+                    <div class="notification-content">
+
+                        <strong>
+                            Notifications
+                        </strong>
+
+                        <p id="dashboardNotificationText">
+                            No new notifications at the moment.
+                        </p>
+
+                    </div>
+
+                    <span class="notification-dot"></span>
+
+                </div>
+
+
+                <!-- ASSIGNMENT HEADER -->
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>
+                            Available Assignments
+                        </h2>
+
+                        <p>
+                            View and manage your assigned work
+                        </p>
+
+                    </div>
+
+                    <button class="view-all"
+                            data-section-target="assignments">
+                        View All →
+                    </button>
+
+                </div>
+
+
+                <!-- RECENT ASSIGNMENTS -->
+
+                <div class="assignment-list"
+                     id="dashboardAssignmentsList">
+
+                    <div class="assignment-loading">
+                        Loading assignments...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ASSIGNMENTS
+            ================================================== -->
+
+            <section class="page-section"
+                     id="section-assignments">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>My Assignments</h2>
+
+                        <p>
+                            View all assignments posted by your administrator
+                        </p>
+                    </div>
+
+                    <button class="refresh-btn"
+                            id="refreshAssignmentsBtn">
+                        ↻ Refresh
+                    </button>
+
+                </div>
+
+
+                <div class="filter-bar">
+
+                    <button class="filter-btn active"
+                            data-filter="all">
+                        All
+                    </button>
+
+                    <button class="filter-btn"
+                            data-filter="submitted">
+                        Submitted
+                    </button>
+
+                    <button class="filter-btn"
+                            data-filter="pending">
+                        Pending
+                    </button>
+
+                    <button class="filter-btn"
+                            data-filter="overdue">
+                        Overdue
+                    </button>
+
+                </div>
+
+
+                <div class="assignment-list"
+                     id="allAssignmentsList">
+
+                    <div class="assignment-loading">
+                        Loading assignments...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SCHEDULE
+            ================================================== -->
+
+            <section class="page-section"
+                     id="section-schedule">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>
+                            Academic Schedule
+                        </h2>
+
+                        <p>
+                            Keep track of your upcoming deadlines
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="schedule-list"
+                     id="scheduleList">
+
+                    <div class="assignment-loading">
+                        Loading schedule...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 NOTIFICATIONS
+            ================================================== -->
+
+            <section class="page-section"
+                     id="section-notifications">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>
+                            Notifications
+                        </h2>
+
+                        <p>
+                            Important assignment and academic alerts
+                        </p>
+
+                    </div>
+
+                    <button class="clear-btn"
+                            id="clearNotificationsBtn">
+                        Clear All
+                    </button>
+
+                </div>
+
+
+                <div class="notifications-list"
+                     id="notificationsList">
+
+                    <div class="empty-box">
+                        No notifications at the moment.
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PROFILE
+            ================================================== -->
+
+            <section class="page-section"
+                     id="section-profile">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>
+                            My Profile
+                        </h2>
+
+                        <p>
+                            View your student information
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-card">
+
+                    <div class="profile-main">
+
+                        <div class="profile-photo-wrap">
+
+                            <div class="profile-big-avatar"
+                                 id="profileAvatar">
+                                ST
+                            </div>
+
+                            <button type="button"
+                                    class="photo-upload-btn"
+                                    id="photoUploadBtn"
+                                    title="Change profile photo">
+                                📷
+                            </button>
+
+                            <input type="file"
+                                   id="photoUploadInput"
+                                   accept="image/*"
+                                   style="display:none;">
+
+                        </div>
+
+                        <div>
+
+                            <h3 id="profileName">
+                                Student
+                            </h3>
+
+                            <p>
+                                Student ID:
+                                <span id="profileStudentId">
+                                    -
+                                </span>
+                            </p>
+
+                            <span class="active-badge">
+                                ● Active Student
+                            </span>
+
+                        </div>
+
+
+                        <button type="button"
+                                class="edit-profile-btn"
+                                id="editProfileBtn">
+                            ✎ Edit Profile
+                        </button>
+
+                    </div>
+
+
+                    <!-- VIEW MODE -->
+
+                    <div class="profile-details-grid"
+                         id="profileViewMode">
+
+                        <div>
+
+                            <span>Email</span>
+
+                            <strong id="profileEmail">
+                                Not available
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>Department</span>
+
+                            <strong id="profileDepartment">
+                                Computer Science
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>Student ID</span>
+
+                            <strong id="profileStudentId2">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>Status</span>
+
+                            <strong>
+                                Active
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EDIT MODE -->
+
+                    <div class="profile-edit-grid"
+                         id="profileEditMode"
+                         style="display:none;">
+
+                        <div>
+
+                            <label for="editProfileName">
+                                Full Name
+                            </label>
+
+                            <input type="text"
+                                   id="editProfileName"
+                                   placeholder="Your full name">
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="editProfileEmail">
+                                Email
+                            </label>
+
+                            <input type="email"
+                                   id="editProfileEmail"
+                                   placeholder="you@example.com">
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="editProfileDepartment">
+                                Department
+                            </label>
+
+                            <input type="text"
+                                   id="editProfileDepartment"
+                                   placeholder="e.g. Computer Science">
+
+                        </div>
+
+
+                        <div class="profile-edit-actions">
+
+                            <button type="button"
+                                    class="profile-save-btn"
+                                    id="saveProfileBtn">
+                                Save Changes
+                            </button>
+
+                            <button type="button"
+                                    class="profile-cancel-btn"
+                                    id="cancelProfileBtn">
+                                Cancel
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SETTINGS
+            ================================================== -->
+
+            <section class="page-section"
+                     id="section-settings">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>
+                            Settings
+                        </h2>
+
+                        <p>
+                            Manage your dashboard preferences
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-card">
+
+
+                    <div class="setting-row">
+
+                        <div class="setting-info">
+
+                            <div class="setting-icon">
+                                🔔
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Notifications
+                                </strong>
+
+                                <p>
+                                    Receive assignment notifications
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <label class="switch">
+
+                            <input type="checkbox"
+                                   id="notificationToggle"
+                                   checked>
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="setting-row">
+
+                        <div class="setting-info">
+
+                            <div class="setting-icon">
+                                ⏰
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Deadline Reminders
+                                </strong>
+
+                                <p>
+                                    Get reminders for upcoming deadlines
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <label class="switch">
+
+                            <input type="checkbox"
+                                   id="deadlineToggle"
+                                   checked>
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="setting-row">
+
+                        <div class="setting-info">
+
+                            <div class="setting-icon">
+                                🌙
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Dark Mode
+                                </strong>
+
+                                <p>
+                                    Use dark appearance for the dashboard
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <label class="switch">
+
+                            <input type="checkbox"
+                                   id="darkModeToggle">
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         ASSIGNMENT MODAL
+    ====================================================== -->
+
+    <div class="modal"
+         id="assignmentModal">
+
+        <div class="modal-content">
+
+            <button class="modal-close"
+                    id="closeAssignmentModal">
+                ×
+            </button>
+
+            <div class="modal-icon">
+                📚
+            </div>
+
+            <h2 id="modalAssignmentTitle">
+                Assignment
+            </h2>
+
+            <p class="modal-subject"
+               id="modalAssignmentSubject">
+                Subject
+            </p>
+
+
+            <div class="modal-info-grid">
+
+                <div>
+                    <span>Due Date</span>
+                    <strong id="modalDueDate">
+                        -
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Due Time</span>
+                    <strong id="modalDueTime">
+                        -
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Status</span>
+                    <strong id="modalStatus">
+                        Pending
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="modal-description">
+
+                <h3>
+                    Description
+                </h3>
+
+                <p id="modalDescription">
+                    No description available.
+                </p>
+
+            </div>
+
+
+            <button class="modal-mark-done"
+                    id="modalMarkDoneBtn">
+                ✓ Mark as Done
+            </button>
+
+            <button class="modal-action"
+                    id="modalActionBtn">
+                Close
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/student.js"></script>
+
+</body>
+
+</html>

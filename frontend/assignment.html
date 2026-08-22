@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Assignment Details</title>
+<link rel="stylesheet" href="css/style.css?v=1">
+<link rel="stylesheet" href="css/student.css?v=1">
+<style>
+  .detail-card {
+    background:#fff; border-radius:12px; padding:24px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.06); max-width:600px; margin:24px auto;
+  }
+  .detail-card h2 { margin-bottom:10px; }
+  .detail-card .due { color:#6b7280; font-size:13px; margin-bottom:16px; }
+  .detail-card .desc { margin-bottom:20px; line-height:1.7; }
+  .back-link { display:inline-block; margin:20px 16px 0; font-size:13px; color:#4f46e5; }
+</style>
+</head>
+<body>
+  <a href="student-dashboard.html" class="back-link">&larr; Back to Dashboard</a>
+
+  <div class="detail-card">
+    <h2 id="aTitle">Loading...</h2>
+    <div class="due" id="aDue"></div>
+    <div class="desc" id="aDesc"></div>
+
+    <div style="margin-bottom:16px;">
+      Status: <span class="badge" id="aStatus">Pending</span>
+    </div>
+
+    <button class="btn btn-success" id="markDoneBtn">MARK AS DONE</button>
+    <div id="submitMsg" style="margin-top:12px;font-size:13px;"></div>
+  </div>
+
+  <script src="js/assignment.js?v=1"></script>
+</body>
+</html>

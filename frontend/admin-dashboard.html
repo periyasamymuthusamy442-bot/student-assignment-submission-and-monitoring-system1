@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Teacher Dashboard | Assignment Tracker
+    </title>
+
+    <!-- Google Font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Admin CSS -->
+    <link
+        rel="stylesheet"
+        href="css/admin.css">
+
+</head>
+
+
+<body>
+
+<div class="admin-layout">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO AREA -->
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">
+
+                <img
+                    src="images/logo.png"
+                    alt="College Logo">
+
+            </div>
+
+            <div class="brand-text">
+
+                <h2>
+                    Assignment
+                </h2>
+
+                <span>
+                    Tracker
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- SIDEBAR MENU -->
+
+        <nav class="sidebar-menu">
+
+
+            <button
+                class="sidebar-link active"
+                data-tab="dashboardTab">
+
+                <span class="menu-icon">
+                    📊
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </button>
+
+
+            <button
+                class="sidebar-link"
+                data-tab="createTab">
+
+                <span class="menu-icon">
+                    ➕
+                </span>
+
+                <span>
+                    Create Assignment
+                </span>
+
+            </button>
+
+
+            <button
+                class="sidebar-link"
+                data-tab="addStudentTab">
+
+                <span class="menu-icon">
+                    🧑‍🎓
+                </span>
+
+                <span>
+                    Add Student
+                </span>
+
+            </button>
+
+
+            <button
+                class="sidebar-link"
+                data-tab="requestsTab">
+
+                <span class="menu-icon">
+                    📥
+                </span>
+
+                <span>
+                    Submission Requests
+                </span>
+
+                <span
+                    class="request-badge"
+                    id="requestBadge"
+                    style="display:none;">
+                    0
+                </span>
+
+            </button>
+
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+            <div class="admin-mini-profile">
+
+                <div
+                    class="admin-avatar"
+                    id="adminAvatar">
+
+                    AD
+
+                </div>
+
+                <div class="admin-mini-info">
+
+                    <strong id="adminName">
+                        Teacher
+                    </strong>
+
+                    <span>
+                        Teacher
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="logoutBtn"
+                class="logout-btn">
+
+                <span>
+                    🚪
+                </span>
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP HEADER -->
+
+        <header class="top-header">
+
+            <div>
+
+                <span class="welcome-text">
+                    Welcome back 👋
+                </span>
+
+                <h1>
+                    Teacher Dashboard
+                </h1>
+
+                <p>
+                    Manage assignments and monitor student submissions.
+                </p>
+
+            </div>
+
+
+            <div class="header-profile">
+
+                <div class="header-avatar">
+                    <span id="headerAdminName">
+                        Teacher
+                    </span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             DASHBOARD TAB
+        ================================================== -->
+
+        <section
+            id="dashboardTab"
+            class="dashboard-tab">
+
+
+            <!-- STATISTICS -->
+
+            <div class="stats-grid">
+
+
+                <!-- STUDENTS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon students-icon">
+                        👨‍🎓
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Total Students
+                        </span>
+
+                        <strong id="totalStudents">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ASSIGNMENTS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon assignments-icon">
+                        📚
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Total Assignments
+                        </span>
+
+                        <strong id="totalAssignments">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SUBMISSIONS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon submissions-icon">
+                        ✅
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Total Submissions
+                        </span>
+
+                        <strong id="totalSubmissions">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PENDING -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon pending-icon">
+                        ⏳
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Total Pending
+                        </span>
+
+                        <strong id="totalPending">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ASSIGNMENT TABLE
+            ================================================== -->
+
+            <div class="content-card">
+
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            MANAGEMENT
+                        </span>
+
+                        <h2>
+                            Assignments
+                        </h2>
+
+                        <p>
+                            Track assignment deadlines and submissions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="table-wrapper">
+
+                    <table class="assignment-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Assignment
+                                </th>
+
+                                <th>
+                                    Due Date
+                                </th>
+
+                                <th>
+                                    Due Time
+                                </th>
+
+                                <th>
+                                    Submitted
+                                </th>
+
+                                <th>
+                                    Not Submitted
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="assignmentsTableBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="6"
+                                    class="table-loading">
+
+                                    Loading assignments...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CREATE ASSIGNMENT TAB
+        ================================================== -->
+
+        <section
+            id="createTab"
+            class="create-tab"
+            style="display:none;">
+
+
+            <div class="content-card create-card">
+
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            ASSIGNMENT MANAGEMENT
+                        </span>
+
+                        <h2>
+                            Create New Assignment
+                        </h2>
+
+                        <p>
+                            Post a new assignment for students.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <form
+                    id="createAssignmentForm"
+                    class="assignment-form">
+
+
+                    <!-- TITLE -->
+
+                    <div class="form-group">
+
+                        <label for="title">
+                            Assignment Title
+                        </label>
+
+                        <input
+                            type="text"
+                            id="title"
+                            placeholder="Enter assignment title"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="form-group">
+
+                        <label for="description">
+                            Description
+                        </label>
+
+                        <textarea
+                            id="description"
+                            rows="5"
+                            placeholder="Enter assignment description"></textarea>
+
+                    </div>
+
+
+
+                    <div class="form-row">
+
+
+                        <!-- DATE -->
+
+                        <div class="form-group">
+
+                            <label for="dueDate">
+                                Due Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="dueDate"
+                                required>
+
+                        </div>
+
+
+
+                        <!-- TIME -->
+
+                        <div class="form-group">
+
+                            <label for="dueTime">
+                                Due Time
+                            </label>
+
+                            <input
+                                type="time"
+                                id="dueTime"
+                                required>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- MESSAGE -->
+
+                    <div
+                        id="createMsg"
+                        class="create-message">
+                    </div>
+
+
+
+                    <!-- BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="create-btn">
+
+                        <span>
+                            ➕
+                        </span>
+
+                        Post Assignment
+
+                    </button>
+
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ADD STUDENT TAB
+        ================================================== -->
+
+        <section
+            id="addStudentTab"
+            class="add-student-tab"
+            style="display:none;">
+
+
+            <div class="content-card create-card">
+
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            STUDENT MANAGEMENT
+                        </span>
+
+                        <h2>
+                            Add New Student
+                        </h2>
+
+                        <p>
+                            Register a student so they can log in with their
+                            registration number and password.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <form
+                    id="addStudentForm"
+                    class="assignment-form">
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label for="studentFullName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="studentFullName"
+                            placeholder="e.g. Priya Kumar"
+                            required>
+
+                    </div>
+
+
+
+                    <div class="form-row">
+
+
+                        <!-- REGISTRATION NUMBER -->
+
+                        <div class="form-group">
+
+                            <label for="studentRegNo">
+                                Registration Number
+                            </label>
+
+                            <input
+                                type="text"
+                                id="studentRegNo"
+                                placeholder="e.g. S004"
+                                required>
+
+                        </div>
+
+
+
+                        <!-- DEPARTMENT -->
+
+                        <div class="form-group">
+
+                            <label for="studentDept">
+                                Department
+                            </label>
+
+                            <input
+                                type="text"
+                                id="studentDept"
+                                placeholder="e.g. Computer Science">
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="form-row">
+
+
+                        <!-- EMAIL -->
+
+                        <div class="form-group">
+
+                            <label for="studentEmailInput">
+                                Email (optional)
+                            </label>
+
+                            <input
+                                type="email"
+                                id="studentEmailInput"
+                                placeholder="student@example.com">
+
+                        </div>
+
+
+
+                        <!-- PASSWORD -->
+
+                        <div class="form-group">
+
+                            <label for="studentPasswordInput">
+                                Password
+                            </label>
+
+                            <input
+                                type="text"
+                                id="studentPasswordInput"
+                                placeholder="Set a login password"
+                                required>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- MESSAGE -->
+
+                    <div
+                        id="addStudentMsg"
+                        class="create-message">
+                    </div>
+
+
+
+                    <!-- BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="create-btn">
+
+                        <span>
+                            🧑‍🎓
+                        </span>
+
+                        Add Student
+
+                    </button>
+
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SUBMISSION REQUESTS TAB
+        ================================================== -->
+
+        <section
+            id="requestsTab"
+            class="requests-tab"
+            style="display:none;">
+
+
+            <div class="content-card">
+
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            VERIFICATION
+                        </span>
+
+                        <h2>
+                            Submission Requests
+                        </h2>
+
+                        <p>
+                            Students request approval here when they mark
+                            an assignment as done. Verify and approve or
+                            reject each request.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="table-wrapper">
+
+                    <table class="assignment-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Student
+                                </th>
+
+                                <th>
+                                    Assignment
+                                </th>
+
+                                <th>
+                                    Requested On
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="requestsTableBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="5"
+                                    class="table-loading">
+
+                                    Loading requests...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<!-- Admin JavaScript -->
+
+<script
+    src="js/admin.js">
+</script>
+
+</body>
+
+</html>

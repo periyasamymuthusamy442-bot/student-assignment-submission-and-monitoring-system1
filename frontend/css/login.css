@@ -1,0 +1,562 @@
+/* =========================================================
+   STUDENT ASSIGNMENT TRACKING SYSTEM
+   COMPACT PROFESSIONAL LOGIN PAGE
+   ========================================================= */
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   LOGIN PAGE
+   ========================================================= */
+
+.login-page {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    /* BACKGROUND IMAGE */
+    background-image:
+        linear-gradient(
+            rgba(10, 20, 40, 0.48),
+            rgba(10, 20, 40, 0.48)
+        ),
+        url("../images/login-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* =========================================================
+   LOGIN CARD - COMPACT
+   ========================================================= */
+
+.login-card {
+    width: 100%;
+    max-width: 460px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    padding: 24px 30px 22px;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.30);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* ================= LOGO - COMPACT ================= */
+
+.logo-img {
+    width: 20px;
+    height: 20px;
+
+    object-fit: contain;
+
+    display: block;
+    margin: 0 auto 10px;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.login-card h1 {
+    color: #102a56;
+
+    font-size: 22px;
+    line-height: 1.25;
+
+    font-weight: 700;
+
+    margin: 0 0 5px 0;
+}
+
+
+/* =========================================================
+   SUBTITLE
+   ========================================================= */
+
+.subtitle {
+    color: #718096;
+
+    font-size: 13px;
+
+    margin: 0 0 17px 0;
+}
+
+
+/* =========================================================
+   ROLE TOGGLE
+   ========================================================= */
+
+.role-toggle {
+    width: 100%;
+
+    display: flex;
+
+    background: #f1f3f7;
+
+    padding: 4px;
+
+    border-radius: 11px;
+
+    margin-bottom: 17px;
+}
+
+
+.role-option {
+    flex: 1;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #526071;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+
+.role-option.active {
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #6366f1
+    );
+
+    color: white;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 5px 14px rgba(79, 70, 229, 0.25);
+}
+
+
+.role-option:hover:not(.active) {
+    background: #e5e7eb;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+form {
+    width: 100%;
+    text-align: left;
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+label {
+    display: block;
+
+    color: #172b4d;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+input {
+    width: 100%;
+
+    height: 46px;
+
+    padding: 0 13px;
+
+    border: 1px solid #d4dbe5;
+
+    border-radius: 9px;
+
+    background: #f8fafc;
+
+    color: #172b4d;
+
+    font-size: 14px;
+
+    outline: none;
+
+    margin-bottom: 13px;
+
+    transition: all 0.2s ease;
+}
+
+
+input:focus {
+    background: #ffffff;
+
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+
+input::placeholder {
+    color: #9aa5b5;
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+   ========================================================= */
+
+.error-msg {
+    color: #dc2626;
+
+    font-size: 12px;
+
+    margin-bottom: 8px;
+
+    min-height: 0;
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+   ========================================================= */
+
+.login-btn {
+    width: 100%;
+
+    height: 46px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #6366f1
+    );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+
+    margin-top: 2px;
+
+    box-shadow:
+        0 7px 18px rgba(79, 70, 229, 0.25);
+}
+
+
+.login-btn:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 10px 22px rgba(79, 70, 229, 0.32);
+}
+
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   SMALL HEIGHT SCREEN
+   ========================================================= */
+
+@media (max-height: 750px) {
+
+    .login-page {
+        padding: 12px;
+    }
+
+    .login-card {
+        max-width: 440px;
+
+        padding: 18px 28px 18px;
+
+        border-radius: 16px;
+    }
+
+    .logo-img {
+        width: 52px !important;
+        height: 52px !important;
+
+        max-width: 52px !important;
+        max-height: 52px !important;
+
+        min-width: 52px !important;
+        min-height: 52px !important;
+
+        margin-bottom: 6px;
+    }
+
+    .login-card h1 {
+        font-size: 21px;
+
+        margin-bottom: 4px;
+    }
+
+    .subtitle {
+        font-size: 12px;
+
+        margin-bottom: 13px;
+    }
+
+    .role-toggle {
+        margin-bottom: 13px;
+    }
+
+    .role-option {
+        height: 39px;
+
+        font-size: 13px;
+    }
+
+    label {
+        font-size: 12px;
+
+        margin-bottom: 4px;
+    }
+
+    input {
+        height: 42px;
+
+        font-size: 13px;
+
+        margin-bottom: 10px;
+    }
+
+    .login-btn {
+        height: 43px;
+
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .login-page {
+        padding: 15px;
+    }
+
+    .login-card {
+        max-width: 400px;
+
+        padding: 22px 22px 20px;
+    }
+
+    .logo-img {
+        width: 55px !important;
+        height: 55px !important;
+
+        max-width: 55px !important;
+        max-height: 55px !important;
+
+        min-width: 55px !important;
+        min-height: 55px !important;
+    }
+
+    .login-card h1 {
+        font-size: 20px;
+    }
+
+    .subtitle {
+        font-size: 12px;
+    }
+
+    .role-option {
+        height: 40px;
+
+        font-size: 13px;
+    }
+
+    input {
+        height: 44px;
+    }
+
+    .login-btn {
+        height: 44px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .login-page {
+        padding: 10px;
+    }
+
+    .login-card {
+        max-width: 100%;
+
+        padding: 20px 18px 18px;
+
+        border-radius: 15px;
+    }
+
+    .logo-img {
+        width: 50px !important;
+        height: 50px !important;
+
+        max-width: 50px !important;
+        max-height: 50px !important;
+
+        min-width: 50px !important;
+        min-height: 50px !important;
+    }
+
+    .login-card h1 {
+        font-size: 19px;
+    }
+
+    .subtitle {
+        margin-bottom: 12px;
+    }
+
+    .role-toggle {
+        margin-bottom: 12px;
+    }
+
+    .role-option {
+        height: 38px;
+
+        font-size: 12px;
+    }
+
+    input {
+        height: 42px;
+
+        padding: 0 11px;
+
+        font-size: 13px;
+    }
+
+    .login-btn {
+        height: 42px;
+
+        font-size: 14px;
+    }
+}
+/* =========================================================
+   COMPACT LOGO - REMOVE BLACK BACKGROUND
+========================================================= */
+
+/* Logo container */
+.logo-container,
+.login-logo,
+.logo {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 auto 12px !important;
+    overflow: hidden !important;
+}
+
+/* Logo image */
+.logo-container img,
+.login-logo img,
+.logo img {
+    width: 85px !important;
+    height: 85px !important;
+    max-width: 85px !important;
+    max-height: 85px !important;
+
+    object-fit: contain !important;
+    object-position: center !important;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    display: block !important;
+}
+
+/* If logo itself has a black background */
+.logo-container img,
+.login-logo img,
+.logo img {
+    mix-blend-mode: multiply;
+}
+
+/* Login card top spacing */
+.login-card,
+.login-container {
+    padding-top: 20px !important;
+}
+
+/* Title spacing after compact logo */
+.login-card h1,
+.login-container h1 {
+    margin-top: 8px !important;
+}
