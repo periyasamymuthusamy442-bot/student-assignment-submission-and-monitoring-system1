@@ -19,7 +19,6 @@ WORKDIR /app
 COPY --from=build /app/out ./out
 COPY --from=build /app/lib ./lib
 COPY --from=build /app/frontend ./frontend
-COPY --from=build /app/data ./data
 
 EXPOSE 8080
 CMD ["java", "-cp", "out:lib/*", "Main"]
